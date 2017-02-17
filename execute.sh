@@ -3,6 +3,8 @@ readonly CONTENT_PATH="$HOME/reps/greymd/docker-zsh-completion"
 readonly BRANCH_NAME="master"
 
 cd "$CONTENT_PATH"
+git config --local user.name greymd
+git config --local user.email greengregson@gmail.com
 
 : "Get docker/docker" && {
     _path="docker/docker/master/contrib/completion/zsh/_docker"
@@ -16,6 +18,7 @@ cd "$CONTENT_PATH"
     curl -L "https://raw.githubusercontent.com/$_path" > "$CONTENT_PATH/$_path"
 }
 
+sed -i -r 's/^(LAST UPDATE:).*$/\0'$(date +%F)'/' $CONTENT_PATH/README.md
 git add -A
 git commit -m "$(date +%Y%m%d)_auto_commit"
 if [[ ${?} == 0 ]]; then

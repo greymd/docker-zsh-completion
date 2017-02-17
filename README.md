@@ -1,3 +1,5 @@
+LAST UPDATE: 2017-02-17
+
 # docker-zsh-completion
 Zsh completion for [docker](http://docker.io) and [docker-compose](https://github.com/docker/compose).
 Docker related repositories are registered as this repository's submodules.
