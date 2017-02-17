@@ -1,6 +1,0 @@
-[submodule "docker"]
-	path = docker
-	url = https://github.com/docker/docker.git
-[submodule "compose"]
-	path = compose
-	url = https://github.com/docker/compose.git
