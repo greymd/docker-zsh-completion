@@ -22,7 +22,7 @@ sed -i -r 's/^(LAST UPDATE:).*$/\1'$(date +%F)'/' $CONTENT_PATH/README.md
 
 git add -A
 git commit -m "$(date +%Y%m%d)_auto_commit"
-if [[ ${?} == 0 ]]; then
+if [ ${?} -eq 0 ]; then
   # If the commit is succeeded, push it to github.
   git push origin $BRANCH_NAME
 fi
