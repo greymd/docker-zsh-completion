@@ -12,3 +12,9 @@ Completion files given by original repositories will be registered as part of `f
 ```sh
 zplug "greymd/docker-zsh-completion"
 ```
+
+### For Antigen users:
+
+```sh
+antigen bundle "greymd/docker-zsh-completion"
+```
