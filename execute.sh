@@ -18,7 +18,8 @@ git config --local user.email greengregson@gmail.com
     curl -L "https://raw.githubusercontent.com/$_path" > "$CONTENT_PATH/$_path"
 }
 
-sed -i -r 's/^(LAST UPDATE:).*$/\0'$(date +%F)'/' $CONTENT_PATH/README.md
+sed -i -r 's/^(LAST UPDATE:).*$/\1'$(date +%F)'/' $CONTENT_PATH/README.md
+
 git add -A
 git commit -m "$(date +%Y%m%d)_auto_commit"
 if [[ ${?} == 0 ]]; then
