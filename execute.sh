@@ -18,6 +18,8 @@ git config --local user.email greengregson@gmail.com
     curl -L "https://raw.githubusercontent.com/$_path" > "$CONTENT_PATH/$_path"
 }
 
+git pull origin master
+
 sed -i -r 's/^(LAST UPDATE:).*$/\1'$(date +%F)'/' $CONTENT_PATH/README.md
 
 git add -A
