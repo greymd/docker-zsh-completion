@@ -20,3 +20,7 @@ zplug "greymd/docker-zsh-completion"
 ```sh
 antigen bundle "greymd/docker-zsh-completion"
 ```
+
+## Why it was created?
+It is good to manage completion files with Zsh's plugin managers. Because it is easy to delete particular completion function no longer used.
+However, plugin managers clone whole repositories for each plugin. Completion file for `docker` command is in the [`docker/docker`](http://docker.io) repository. But it has slightly big repository size. It is waste of the disk space to download whole of the repository only for single Zsh completion file. The reason why I made it.
