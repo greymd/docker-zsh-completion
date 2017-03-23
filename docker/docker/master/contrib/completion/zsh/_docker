@@ -642,6 +642,7 @@ __docker_container_subcommand() {
         "($help)--read-only[Mount the container's root filesystem as read only]"
         "($help)*--security-opt=[Security options]:security option: "
         "($help)*--shm-size=[Size of '/dev/shm' (format is '<number><unit>')]:shm size: "
+        "($help)--stop-signal=[Signal to kill a container]:signal:_signals"
         "($help)--stop-timeout=[Timeout (in seconds) to stop a container]:time: "
         "($help)*--sysctl=-[sysctl options]:sysctl: "
         "($help -t --tty)"{-t,--tty}"[Allocate a pseudo-tty]"
@@ -858,7 +859,6 @@ __docker_container_subcommand() {
                 "($help)--rm[Remove intermediate containers when it exits]" \
                 "($help)--runtime=[Name of the runtime to be used for that container]:runtime:__docker_complete_runtimes" \
                 "($help)--sig-proxy[Proxy all received signals to the process (non-TTY mode only)]" \
-                "($help)--stop-signal=[Signal to kill a container]:signal:_signals" \
                 "($help)--storage-opt=[Storage driver options for the container]:storage options:->storage-opt" \
                 "($help -): :__docker_complete_images" \
                 "($help -):command: _command_names -e" \
@@ -1929,12 +1929,18 @@ __docker_service_subcommand() {
         "($help)--restart-condition=[Restart when condition is met]:mode:(any none on-failure)"
         "($help)--restart-delay=[Delay between restart attempts]:delay: "
         "($help)--restart-max-attempts=[Maximum number of restarts before giving up]:max-attempts: "
-        "($help)--restart-window=[Window used to evaluate the restart policy]:window: "
+        "($help)--restart-window=[Window used to evaluate the restart policy]:duration: "
+        "($help)--rollback-delay=[Delay between task rollbacks]:duration: "
+        "($help)--rollback-failure-action=[Action on rollback failure]:action:(continue pause)"
+        "($help)--rollback-max-failure-ratio=[Failure rate to tolerate during a rollback]:failure rate: "
+        "($help)--rollback-monitor=[Duration after each task rollback to monitor for failure]:duration: "
+        "($help)--rollback-parallelism=[Maximum number of tasks rolled back simultaneously]:number: "
         "($help)*--secret=[Specify secrets to expose to the service]:secret:__docker_complete_secrets"
         "($help)--stop-grace-period=[Time to wait before force killing a container]:grace period: "
+        "($help)--stop-signal=[Signal to stop the container]:signal:_signals"
         "($help -t --tty)"{-t,--tty}"[Allocate a pseudo-TTY]"
         "($help)--update-delay=[Delay between updates]:delay: "
-        "($help)--update-failure-action=[Action on update failure]:mode:(pause continue)"
+        "($help)--update-failure-action=[Action on update failure]:mode:(continue pause rollback)"
         "($help)--update-max-failure-ratio=[Failure rate to tolerate during an update]:fraction: "
         "($help)--update-monitor=[Duration after each task update to monitor for failure]:window: "
         "($help)--update-parallelism=[Maximum number of tasks updated simultaneously]:number: "
@@ -1971,9 +1977,10 @@ __docker_service_subcommand() {
         (logs)
             _arguments $(__docker_arguments) \
                 $opts_help \
-                "($help)--details[Show extra details provided to logs]" \
                 "($help -f --follow)"{-f,--follow}"[Follow log output]" \
                 "($help)--no-resolve[Do not map IDs to Names]" \
+                "($help)--no-task-ids[Do not include task IDs]" \
+                "($help)--no-trunc[Do not truncate output]" \
                 "($help)--since=[Show logs since timestamp]:timestamp: " \
                 "($help)--tail=[Number of lines to show from the end of the logs]:lines:(1 10 20 50 all)" \
                 "($help -t --timestamps)"{-t,--timestamps}"[Show timestamps]" \
