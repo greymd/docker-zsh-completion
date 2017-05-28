@@ -6,8 +6,8 @@ cd "$THIS_DIR"
 git config --local user.name greymd
 git config --local user.email greengregson@gmail.com
 
-: "Get docker/docker" && {
-    _path="docker/docker/master/contrib/completion/zsh/_docker"
+: "Get moby/moby" && {
+    _path="moby/moby/master/contrib/completion/zsh/_docker"
     mkdir -p "$THIS_DIR/$(dirname ${_path})"
     curl -L "https://raw.githubusercontent.com/$_path" > "$THIS_DIR/$_path"
 }
