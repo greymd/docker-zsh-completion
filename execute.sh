@@ -4,7 +4,7 @@ readonly REPO_DIR="$THIS_DIR/repos"
 readonly BRANCH_NAME="master"
 
 cd "$THIS_DIR"
-rm -rf "${REPO_DIR}/*"
+rm -rf ${REPO_DIR}/*
 git config --local user.name greymd
 git config --local user.email greengregson@gmail.com
 
