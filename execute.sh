@@ -8,8 +8,8 @@ rm -rf ${REPO_DIR}/*
 git config --local user.name greymd
 git config --local user.email greengregson@gmail.com
 
-: "Get moby/moby" && {
-    _path="moby/moby/master/contrib/completion/zsh/_docker"
+: "Get docker/cli" && {
+    _path="docker/cli/blob/master/contrib/completion/zsh/docker"
     mkdir -p "$REPO_DIR/$(dirname ${_path})"
     curl -L "https://raw.githubusercontent.com/$_path" > "$REPO_DIR/$_path"
 }
