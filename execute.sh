@@ -9,7 +9,7 @@ git config --local user.name greymd
 git config --local user.email greengregson@gmail.com
 
 : "Get docker/cli" && {
-    _path="docker/cli/blob/master/contrib/completion/zsh/docker"
+    _path="docker/cli/master/contrib/completion/zsh/docker"
     mkdir -p "$REPO_DIR/$(dirname ${_path})"
     curl -L "https://raw.githubusercontent.com/$_path" > "$REPO_DIR/$_path"
 }
