@@ -1,4 +1,4 @@
-LAST UPDATE:2017-12-03
+LAST UPDATE:2018-02-18
 
 # docker-zsh-completion
 Zsh completion for [docker](http://docker.io) and [docker-compose](https://github.com/docker/compose).
