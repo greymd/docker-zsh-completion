@@ -1,1 +1,1 @@
-0 13 * * * cd ${HOME}/reps/greymd/docker-zsh-completion && sh ./execute.sh &> /dev/null
+0 13 * * * cd "${HOME}"/repos/greymd/docker-zsh-completion && sh ./execute.sh &> /dev/null
