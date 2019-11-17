@@ -6,7 +6,7 @@ readonly BRANCH_NAME="master"
 cd "$THIS_DIR"
 rm -rf ${REPO_DIR}/*
 git config --local user.name greymd
-git config --local user.email greengregson@gmail.com
+git config --local user.email yamadagrep@gmail.com
 
 : "Get docker/cli" && {
     _path="docker/cli/master/contrib/completion/zsh/_docker"
