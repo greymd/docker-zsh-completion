@@ -2653,7 +2653,7 @@ __docker_commands() {
     then
         local -a lines
         lines=(${(f)"$(_call_program commands docker 2>&1)"})
-        _docker_subcommands=(${${${(M)${lines[$((${lines[(i)*Commands:]} + 1)),-1]}:# *}## #}/ ##/:})
+        _docker_subcommands=(${${${(M)${lines[$((${lines[(i)*Commands:]} + 1)),-1]}:# *}## #}/\*# ##/:})
         _docker_subcommands=($_docker_subcommands 'daemon:Enable daemon mode' 'help:Show help for a command')
         (( $#_docker_subcommands > 2 )) && _store_cache docker_subcommands _docker_subcommands
     fi
@@ -2779,7 +2779,7 @@ __docker_subcommand() {
                 "($help)--oom-score-adjust=[Set the oom_score_adj for the daemon]:oom-score:(-500)" \
                 "($help -p --pidfile)"{-p=,--pidfile=}"[Path to use for daemon PID file]:PID file:_files" \
                 "($help)--raw-logs[Full timestamps without ANSI coloring]" \
-                "($help)*--registry-mirror=[Preferred Docker registry mirror]:registry mirror: " \
+                "($help)*--registry-mirror=[Preferred registry mirror]:registry mirror: " \
                 "($help)--seccomp-profile=[Path to seccomp profile]:path:_files -g \"*.json\"" \
                 "($help -s --storage-driver)"{-s=,--storage-driver=}"[Storage driver to use]:driver:(aufs btrfs devicemapper overlay overlay2 vfs zfs)" \
                 "($help)--selinux-enabled[Enable selinux support]" \
