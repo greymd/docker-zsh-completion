@@ -1,0 +1,44 @@
+name: Update
+
+on:
+  pull_request:
+  push:
+    branches:
+      - feature/actions
+
+jobs:
+  update:
+    name: Cronjob based github action
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Import changes
+        shell: bash
+        run: |
+          readonly THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-${(%):-%N}}")"; pwd)"
+          readonly REPO_DIR="$THIS_DIR"
+          : "Get docker/cli" && {
+              _path="docker/cli/master/contrib/completion/zsh/_docker"
+              mkdir -p "$REPO_DIR/$(dirname ${_path})"
+              curl -L "https://raw.githubusercontent.com/$_path" > "$REPO_DIR/$_path"
+          }
+          : "Get docker/compose" && {
+              _path="docker/compose/master/contrib/completion/zsh/_docker-compose"
+              mkdir -p "$REPO_DIR/$(dirname ${_path})"
+              curl -L "https://raw.githubusercontent.com/$_path" > "$REPO_DIR/$_path"
+          }
+
+      - name: Update date
+        shell: bash
+        run: |
+          # Keepalive here since GitHub will suspend the scheduled trigger for GitHub action workflows
+          # if there is no commit in the repository for the past 60 days.
+          sed -i -E 's/^(LAST UPDATE:).*$/\1'$(date +%F)'/' $THIS_DIR/README.md
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        commit_message: auto_commit
+        branch: test
+
