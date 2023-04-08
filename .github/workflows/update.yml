@@ -39,6 +39,7 @@ jobs:
           sed -i -E 's/^(LAST UPDATE:).*$/\1'$(date +%F)'/' $THIS_DIR/README.md
 
       - uses: stefanzweifel/git-auto-commit-action@v4
-        commit_message: auto_commit
-        branch: test
+        with:
+          commit_message: auto_commit
+          branch: test
 
