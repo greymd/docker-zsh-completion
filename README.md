@@ -2,8 +2,7 @@ LAST UPDATE:2023-03-19
 
 # docker-zsh-completion
 Zsh completion for [docker](http://docker.io) and [docker-compose](https://github.com/docker/compose).
-Completion files on the original repositories are automatically imported to this repository every week. The batch application is running to update them (please refer to [execute.sh](/execute.sh) which is used by the batch).
-
+Completion files on the original repositories are automatically imported to this repository every week. The schduled job is running to update them (please refer to [update.sh](.github/workflows/update.yml) which is used by the batch).
 
 Please follow the following instructions to import completion files (After the instllation, they are registered to zsh's `fpath`).
 
