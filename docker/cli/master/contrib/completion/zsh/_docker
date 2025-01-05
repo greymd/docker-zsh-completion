@@ -2727,7 +2727,6 @@ __docker_subcommand() {
                 $opts_help \
                 "($help)*--add-runtime=[Register an additional OCI compatible runtime]:runtime:__docker_complete_runtimes" \
                 "($help)*--allow-nondistributable-artifacts=[Push nondistributable artifacts to specified registries]:registry: " \
-                "($help)--api-cors-header=[CORS headers in the Engine API]:CORS headers: " \
                 "($help)*--authorization-plugin=[Authorization plugins to load]" \
                 "($help -b --bridge)"{-b=,--bridge=}"[Attach containers to a network bridge]:bridge:_net_interfaces" \
                 "($help)--bip=[Network bridge IP]:IP address: " \
@@ -2770,7 +2769,6 @@ __docker_subcommand() {
                 "($help)--max-concurrent-uploads[Set the max concurrent uploads]" \
                 "($help)--max-download-attempts[Set the max download attempts for each pull]" \
                 "($help)--mtu=[Network MTU]:mtu:(0 576 1420 1500 9000)" \
-                "($help)--oom-score-adjust=[Set the oom_score_adj for the daemon]:oom-score:(-500)" \
                 "($help -p --pidfile)"{-p=,--pidfile=}"[Path to use for daemon PID file]:PID file:_files" \
                 "($help)--raw-logs[Full timestamps without ANSI coloring]" \
                 "($help)*--registry-mirror=[Preferred registry mirror]:registry mirror: " \
