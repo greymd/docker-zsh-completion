@@ -26,6 +26,9 @@ jobs:
               mkdir -p "$(dirname ${_path})"
               curl -L "https://raw.githubusercontent.com/$_path" > "$_path"
           }
+          : "Link docker compose" && {
+              ln -sf "docker/compose/master/contrib/completion/zsh/_docker-compose" "_docker_compose"
+          }
       - name: Update date
         shell: bash
         run: |
